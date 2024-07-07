@@ -37,5 +37,15 @@ return {
         vim.keymap.set('n', '<leader>u', vim.cmd.UndotreeToggle)
       end,
     },
+    {
+      'akinsho/toggleterm.nvim', -- TODO: LEARN
+      version = '*',
+      config = function()
+        require('toggleterm').setup {
+          open_mapping = [[<c-\>]],
+          direction = 'float',
+        }
+      end,
+    },
   },
 }
