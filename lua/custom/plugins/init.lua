@@ -19,5 +19,6 @@ return {
     config = function()
       require('grammar-guard').init()
     end,
+    'ThePrimeagen/vim-be-good',
   },
 }
