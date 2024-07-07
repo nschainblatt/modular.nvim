@@ -5,3 +5,6 @@ function LineNumberColors()
 end
 
 LineNumberColors()
+
+-- Set absolute and relative line numbers in netrw
+vim.cmd [[let g:netrw_bufsettings = 'noma nomod nu nobl nowrap ro']]
