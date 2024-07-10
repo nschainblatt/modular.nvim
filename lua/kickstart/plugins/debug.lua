@@ -53,6 +53,11 @@ return {
     vim.keymap.set('n', '<leader>B', function()
       dap.set_breakpoint(vim.fn.input 'Breakpoint condition: ')
     end, { desc = 'Debug: Set Breakpoint' })
+    -- Keybinding to quit debugger
+    vim.keymap.set('n', '<leader>dq', function()
+      dap.terminate()
+      dapui.close()
+    end, { desc = 'Debug: Quit Debugger' })
 
     -- Dap UI setup
     -- For more information, see |:help nvim-dap-ui|
