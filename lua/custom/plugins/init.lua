@@ -6,7 +6,7 @@ return {
   {
     'tpope/vim-fugitive',
     config = function()
-      vim.keymap.set('n', '<leader>gs', vim.cmd.Git)
+      vim.keymap.set('n', '<leader>gs', ':Git<CR><C-w>25+')
     end,
   },
   'nvim-java/nvim-java',
