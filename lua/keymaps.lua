@@ -51,4 +51,8 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 -- Open netrw to current directory
 vim.keymap.set('n', '<leader>sv', vim.cmd.Ex)
 
+vim.keymap.set('n', '<leader><leader>rr', [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
+
+vim.keymap.set('n', '<C-n>', '<C-e>')
+
 -- vim: ts=2 sts=2 sw=2 et
