@@ -85,14 +85,49 @@ return {
   --   'Exafunction/codeium.vim',
   --   event = 'BufEnter',
   -- },
+  --   {
+  --     "tiagovla/tokyodark.nvim",
+  --     opts = {
+  --         -- custom options here
+  --     },
+  --     config = function(_, opts)
+  --         require("tokyodark").setup(opts) -- calling setup is optional
+  --         vim.cmd [[colorscheme tokyodark]]
+  --     end,
+  -- },
+  -- {
+  --   'loganswartz/sunburn.nvim',
+  --   dependencies = { 'loganswartz/polychrome.nvim' },
+  --   -- you could do this, or use the standard vimscript `colorscheme sunburn`
+  --   config = function()
+  --     vim.cmd.colorscheme 'sunburn'
+  --   end,
+  -- },
+  -- {
+  --   'ellisonleao/gruvbox.nvim',
+  --   priority = 1000,
+  --   config = function()
+  --     vim.cmd.colorscheme 'gruvbox'
+  --   end,
+  -- },
+  -- {
+  --   'nyoom-engineering/oxocarbon.nvim',
+  --   config = function()
+  --     vim.cmd.colorscheme 'oxocarbon'
+  --   end,
+  -- },
   {
-    "tiagovla/tokyodark.nvim",
-    opts = {
-        -- custom options here
-    },
-    config = function(_, opts)
-        require("tokyodark").setup(opts) -- calling setup is optional
-        vim.cmd [[colorscheme tokyodark]]
+    'EdenEast/nightfox.nvim',
+    config = function()
+      require('nightfox').setup {
+        palettes = {
+          -- Custom duskfox with black background
+          nightfox = {
+            bg1 = '#000000', -- Black background
+          },
+        },
+      }
+      vim.cmd.colorscheme 'nightfox'
     end,
-}
+  },
 }
