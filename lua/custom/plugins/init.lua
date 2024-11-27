@@ -31,12 +31,12 @@ return {
         }
       end,
     },
-    {
-      'mbbill/undotree',
-      config = function()
-        vim.keymap.set('n', '<leader>u', vim.cmd.UndotreeToggle)
-      end,
-    },
+    -- {
+    --   'mbbill/undotree',
+    --   config = function()
+    --     vim.keymap.set('n', '<leader>u', vim.cmd.UndotreeToggle)
+    --   end,
+    -- },
     {
       'akinsho/toggleterm.nvim', -- TODO: LEARN
       version = '*',
