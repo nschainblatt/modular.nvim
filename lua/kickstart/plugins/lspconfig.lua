@@ -167,6 +167,8 @@ return {
         --
         -- But for many setups, the LSP (`tsserver`) will work just fine
         tsserver = {},
+        bashls = {},
+        jdtls = {},
         --
 
         lua_ls = {
@@ -211,10 +213,6 @@ return {
             server.capabilities = vim.tbl_deep_extend('force', {}, capabilities, server.capabilities or {})
             require('lspconfig')[server_name].setup(server)
           end,
-          -- jdtls = function()
-          --   require('java').setup {}
-          --   require('lspconfig').jdtls.setup {}
-          -- end,
         },
       }
     end,

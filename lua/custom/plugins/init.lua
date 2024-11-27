@@ -9,7 +9,13 @@ return {
       vim.keymap.set('n', '<leader>gs', ':tab G<CR>:Git<CR>')
     end,
   },
-  -- 'nvim-java/nvim-java',
+  {
+    'nvim-java/nvim-java',
+    config = function()
+      require('java').setup()
+      require('lspconfig').jdtls.setup {}
+    end,
+  },
   {
     'brymer-meneses/grammar-guard.nvim',
     dependencies = {
