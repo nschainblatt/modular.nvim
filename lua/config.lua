@@ -10,5 +10,5 @@ LineNumberColors()
 vim.cmd [[let g:netrw_bufsettings = 'noma nomod nu nobl nowrap ro']]
 
 -- Set transparent background
--- vim.cmd([[highlight Normal guibg=NONE ctermbg=NONE]])
--- vim.cmd([[highlight NonText guibg=NONE ctermbg=NONE]])
+vim.cmd([[highlight Normal guibg=NONE ctermbg=NONE]])
+vim.cmd([[highlight NonText guibg=NONE ctermbg=NONE]])
