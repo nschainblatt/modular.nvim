@@ -130,4 +130,10 @@ return {
       vim.cmd.colorscheme 'nightfox'
     end,
   },
+  {
+    'VidocqH/lsp-lens.nvim', -- NOTE: keep track of this, there could eventually be a better built in and supported lens plugin
+    config = function()
+      require('lsp-lens').setup {}
+    end,
+  },
 }
