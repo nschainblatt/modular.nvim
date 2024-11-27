@@ -169,6 +169,10 @@ return {
         tsserver = {},
         bashls = {},
         jdtls = {},
+        debugpy = {},
+        pylint = {},
+        pylsp = {},
+        pyright = {},
         --
 
         lua_ls = {
