@@ -11,7 +11,7 @@ return {
     require('toggleterm').setup {
       open_mapping = [[<c-\>]],
       size = 100,
-      direction = 'vertical',
+      direction = 'float',
       shell = shell,
     }
   end,
