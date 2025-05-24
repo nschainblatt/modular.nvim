@@ -40,7 +40,19 @@ return {
         -- javascript = { "prettierd", "prettier", stop_after_first = true },
         java = { 'google-java-format' },
         python = { 'black' },
+        php = { 'php' },
       },
+      formatters = {
+        php = {
+          command = 'vendor/bin/php-cs-fixer',
+          args = {
+            "fix",
+            "$FILENAME",
+            "--config=.php-cs-fixer.dist.php"
+          },
+          stdin = false
+        }
+      }
     },
   },
 }
