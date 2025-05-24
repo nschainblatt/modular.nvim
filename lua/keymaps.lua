@@ -48,4 +48,8 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 -- Open netrw to current directory
 vim.keymap.set('n', '<leader>sv', vim.cmd.Ex)
 
+-- Diagnostic keymaps
+vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = 'Go to previous [D]iagnostic message' })
+vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = 'Go to next [D]iagnostic message' })
+
 -- vim: ts=2 sts=2 sw=2 et
