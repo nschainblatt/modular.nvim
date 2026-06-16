@@ -53,6 +53,21 @@ return {
       -- [[ Configure Telescope ]]
       -- See `:help telescope` and `:help telescope.setup()`
       require('telescope').setup {
+        defaults = {
+            layout_strategy = 'vertical',
+            layout_config = {
+              horizontal = {
+                width = 0.95,      -- 95% of the window width
+                height = 0.90,     -- 90% of the window height
+                preview_width = 0.6,  -- optional, make preview larger
+              },
+              vertical = {
+                width = 0.9,
+                height = 0.95,
+                preview_height = 0.6,
+              },
+            },
+          },
         -- You can put your default mappings / updates / etc. in here
         --  All the info you're looking for is in `:help telescope.setup()`
         --

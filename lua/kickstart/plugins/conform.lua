@@ -19,7 +19,7 @@ return {
       --   -- Disable "format_on_save lsp_fallback" for languages that don't
       --   -- have a well standardized coding style. You can add additional
       --   -- languages here or re-enable it for the disabled ones.
-      --   local disable_filetypes = { c = true, cpp = true }
+
       --   local lsp_format_opt
       --   if disable_filetypes[vim.bo[bufnr].filetype] then
       --     lsp_format_opt = 'never'
@@ -34,25 +34,27 @@ return {
       formatters_by_ft = {
         lua = { 'stylua' },
         -- Conform can also run multiple formatters sequentially
-        -- python = { "isort", "black" },
+        python = { 'autoflake', 'black' },
         --
         -- You can use 'stop_after_first' to run the first available formatter from the list
-        -- javascript = { "prettierd", "prettier", stop_after_first = true },
+        javascript = { 'prettier' },
+        typescript = { 'prettier' },
         java = { 'google-java-format' },
-        python = { 'black' },
         php = { 'php' },
+        go = { 'gofumpt' },
+        html = { 'prettier' },
       },
       formatters = {
         php = {
           command = 'vendor/bin/php-cs-fixer',
           args = {
-            "fix",
-            "$FILENAME",
-            "--config=.php-cs-fixer.dist.php"
+            'fix',
+            '$FILENAME',
+            '--config=.php-cs-fixer.dist.php',
           },
-          stdin = false
-        }
-      }
+          stdin = false,
+        },
+      },
     },
   },
 }

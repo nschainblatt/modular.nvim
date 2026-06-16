@@ -52,4 +52,51 @@ vim.keymap.set('n', '<leader>sv', vim.cmd.Ex)
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = 'Go to previous [D]iagnostic message' })
 vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = 'Go to next [D]iagnostic message' })
 
+-- Evaluate expression on current line
+vim.keymap.set('n', '<leader>=', ':s/.*/\\=eval(submatch(0))')
+
+-- Replace variable
+vim.keymap.set('n', '<leader><leader>rr', [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
+
+-- Toggle Copilot
+vim.keymap.set('n', '<leader>ai', [[:SupermavenToggle<CR>]])
+-- vim.keymap.set('n', '<leader>ai', [[:Copilot suggestion<CR>]])
+
+-- Restart LSP (mostly use after updating .venv for python)
+vim.keymap.set('n', '<leader>rr', [[:LspRestart<CR>]])
+
+vim.keymap.set('v', 'K', ":move '<-2<CR>gv=gv")
+vim.keymap.set('v', 'J', ":move '>+1<CR>gv=gv")
+
+vim.keymap.set('n', '<leader>gn', function()
+  local bufnr = vim.api.nvim_get_current_buf()
+  local window = vim.api.nvim_get_current_win()
+  local params = vim.lsp.util.make_position_params(window)
+  params.context = { includeDeclaration = true }
+  vim.lsp.buf_request(bufnr, 'textDocument/references', params, function(err, result, ctx, _)
+    local locations = {}
+    if result then
+      local results = vim.lsp.util.locations_to_items(result, vim.lsp.get_client_by_id(ctx.client_id).offset_encoding)
+      locations = vim.F.if_nil(results, {})
+    end
+    if vim.tbl_isempty(locations) then
+      return
+    end
+    vim.fn.setqflist(locations, 'r')
+    -- vim.cmd.cnext()
+  end)
+end)
+
+vim.keymap.set('n', '<C-n>', vim.cmd.cnext)
+vim.keymap.set('n', '<C-p>', vim.cmd.cprev)
+
+-- Neovim terminal
+-- vim.keymap.set("", "<C-\\>", function ()
+--   local buftype = vim.bo.buftype
+--   local buffers = vim.api.nvim_list_buffers()
+--   if buftype ~= "terminal" then
+--     vim.cmd.terminal()
+--   end
+-- end)
+
 -- vim: ts=2 sts=2 sw=2 et
